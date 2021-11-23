@@ -10,7 +10,7 @@ const getRepresentativesByAssignedPostalCodes = async (
       await retrieveMultiple(
         config,
         "bsi_postalcodefederalmaps",
-        `$filter=bsi_PledgeForm_bsi_PostalCodeFederalMap_b/any(a:a/bsi_pledgeformid eq ${pledgeForm.bsi_pledgeformid})`
+        `$filter=statecode eq 0 and bsi_PledgeForm_bsi_PostalCodeFederalMap_b/any(a:a/bsi_pledgeformid eq ${pledgeForm.bsi_pledgeformid})`
       )
     ).value;
 

@@ -10,7 +10,7 @@ const getAssignedRepresentatives = async (
       await retrieveMultiple(
         config,
         "bsi_representatives",
-        `$filter=bsi_PledgeForm_bsi_Representative_bsi_Rep/any(a:a/bsi_pledgeformid eq ${pledgeForm.bsi_pledgeformid})`
+        `$filter=statecode eq 0 and bsi_PledgeForm_bsi_Representative_bsi_Rep/any(a:a/bsi_pledgeformid eq ${pledgeForm.bsi_pledgeformid})`
       )
     ).value;
 

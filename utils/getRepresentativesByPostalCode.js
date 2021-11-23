@@ -13,7 +13,7 @@ const getRepresentativeByPostalCode = async (
         await retrieveMultiple(
           config,
           "bsi_postalcodefederalmaps",
-          `$filter=bsi_postalcode eq '${postalCode}' and bsi_federalelectoralid ne null&$select=bsi_postalcode,bsi_federalelectoralid`
+          `$filter=statecode eq 0 and bsi_postalcode eq '${postalCode}' and bsi_federalelectoralid ne null&$select=bsi_postalcode,bsi_federalelectoralid`
         )
       ).value;
       if (postcodeMap.length !== 0) {
