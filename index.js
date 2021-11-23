@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import express from "express";
 import getToken from "./middleware/getToken.js";
 import pledgeFormsRoute from "./routes/pledgeForm.js";
+import cors from "cors";
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ const confidentialClientApplication = new msal.ConfidentialClientApplication(
 
 const Main = async () => {
   const app = express();
+  app.use(cors());
   app.set("cca", confidentialClientApplication);
   app.use(getToken);
   app.use("/api/pledgeforms", pledgeFormsRoute);
