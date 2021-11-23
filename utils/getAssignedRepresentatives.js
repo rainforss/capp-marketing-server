@@ -19,7 +19,7 @@ const getAssignedRepresentatives = async (
         id: r.bsi_representativeid,
         firstName: r.bsi_firstname,
         lastName: r.bsi_lastname,
-        emailAddress: r.bsi_emailaddress,
+        emailAddress: r.bsi_email,
         salutation: r.bsi_salutation,
         title: r.bsi_title,
         photoURL: r.bsi_photourl,
