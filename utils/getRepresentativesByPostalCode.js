@@ -36,6 +36,7 @@ const getRepresentativeByPostalCode = async (
             title: r.bsi_title,
             photoURL: r.bsi_photourl,
             sequenceNumber: r.bsi_sequencenumber,
+            isPrimary: false,
           });
         });
       }
@@ -69,6 +70,7 @@ const getRepresentativeByPostalCode = async (
             title: r.bsi_title,
             photoURL: r.bsi_photourl,
             sequenceNumber: r.bsi_sequencenumber,
+            isPrimary: false,
           });
         });
       }
@@ -102,6 +104,7 @@ const getRepresentativeByPostalCode = async (
             title: r.bsi_title,
             photoURL: r.bsi_photourl,
             sequenceNumber: r.bsi_sequencenumber,
+            isPrimary: false,
           });
         });
       }
@@ -135,6 +138,7 @@ const getRepresentativeByPostalCode = async (
             title: r.bsi_title,
             photoURL: r.bsi_photourl,
             sequenceNumber: r.bsi_sequencenumber,
+            isPrimary: false,
           });
         });
       }

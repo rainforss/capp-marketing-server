@@ -30,6 +30,7 @@ const confidentialClientApplication = new msal.ConfidentialClientApplication(
 const Main = async () => {
   const app = express();
   app.use(cors());
+  app.use(express.json());
   app.set("cca", confidentialClientApplication);
   app.use(getToken);
   app.use("/api/pledgeforms", pledgeFormsRoute);

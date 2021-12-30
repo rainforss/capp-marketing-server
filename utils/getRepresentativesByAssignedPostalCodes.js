@@ -48,6 +48,7 @@ const getRepresentativesByAssignedPostalCodes = async (
             title: r.bsi_title,
             photoURL: r.bsi_photourl,
             sequenceNumber: r.bsi_sequencenumber,
+            isPrimary: true,
           });
         });
 
@@ -79,6 +80,7 @@ const getRepresentativesByAssignedPostalCodes = async (
             title: r.bsi_title,
             photoURL: r.bsi_photourl,
             sequenceNumber: r.bsi_sequencenumber,
+            isPrimary: true,
           });
         });
 
@@ -110,6 +112,7 @@ const getRepresentativesByAssignedPostalCodes = async (
             title: r.bsi_title,
             photoURL: r.bsi_photourl,
             sequenceNumber: r.bsi_sequencenumber,
+            isPrimary: true,
           });
         });
 
@@ -141,6 +144,7 @@ const getRepresentativesByAssignedPostalCodes = async (
             title: r.bsi_title,
             photoURL: r.bsi_photourl,
             sequenceNumber: r.bsi_sequencenumber,
+            isPrimary: true,
           });
         });
 

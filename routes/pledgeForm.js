@@ -2,13 +2,14 @@ import { retrieveMultiple, WebApiConfig } from "dataverse-webapi/lib/node.js";
 import express from "express";
 import getAssignedRepresentatives from "../utils/getAssignedRepresentatives.js";
 import getRepresentativesByAssignedPostalCodes from "../utils/getRepresentativesByAssignedPostalCodes.js";
+import { getRepresentativesByLatLng } from "../utils/getRepresentativesByLatLng.js";
 import getRepresentativeByPostalCode from "../utils/getRepresentativesByPostalCode.js";
 
 const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    const { formName, postalCode } = req.query;
+    const { formName, postalCode, lat, lng } = req.query;
 
     const representativeList = [];
 
@@ -31,12 +32,18 @@ router.get("/", async (req, res) => {
     const pledgeForm = result.value[0];
 
     if (pledgeForm.bsi_ignorerepslookup === false) {
-      await getRepresentativeByPostalCode(
-        pledgeForm,
-        config,
-        postalCode,
-        representativeList
-      );
+      //If it is an older form, use postal code; otherwise, use lat and lng
+      if (pledgeForm.createdon < new Date("2021-12-28T00:00:00")) {
+        //To be removed once all forms are updated
+        await getRepresentativeByPostalCode(
+          pledgeForm,
+          config,
+          postalCode,
+          representativeList
+        );
+      } else {
+        await getRepresentativesByLatLng(lat, lng, representativeList);
+      }
     }
 
     if (pledgeForm.bsi_assignedrepsonly === true) {
