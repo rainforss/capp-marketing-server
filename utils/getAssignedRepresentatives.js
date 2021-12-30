@@ -14,11 +14,13 @@ const getAssignedRepresentatives = async (
       )
     ).value;
 
-    const secondaryRepresentatives = await retrieveMultiple(
-      config,
-      "bsi_representatives",
-      `$filter=statecode eq 0 and bsi_bsi_pledgeform_secondary_representative/any(a:a/bsi_pledgeformid eq ${pledgeForm.bsi_pledgeformid})`
-    );
+    const secondaryRepresentatives = (
+      await retrieveMultiple(
+        config,
+        "bsi_representatives",
+        `$filter=statecode eq 0 and bsi_bsi_pledgeform_secondary_representative/any(a:a/bsi_pledgeformid eq ${pledgeForm.bsi_pledgeformid})`
+      )
+    ).value;
 
     primaryRepresentatives.forEach((r) => {
       representativeList.push({
