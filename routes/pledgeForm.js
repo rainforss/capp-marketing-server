@@ -33,20 +33,20 @@ router.get("/", async (req, res) => {
 
     if (pledgeForm.bsi_ignorerepslookup === false) {
       //If it is an older form, use postal code; otherwise, use lat and lng
-      if (
-        pledgeForm.createdon < new Date("2021-12-28T00:00:00") &&
-        pledgeForm.createdon > new Date("2021-07-10T00:00:00")
-      ) {
-        //To be removed once all forms are updated
-        await getRepresentativeByPostalCode(
-          pledgeForm,
-          config,
-          postalCode,
-          representativeList
-        );
-      } else {
-        await getRepresentativesByLatLng(lat, lng, representativeList);
-      }
+      // if (
+      //   pledgeForm.createdon < new Date("2021-12-28T00:00:00") &&
+      //   pledgeForm.createdon > new Date("2021-07-10T00:00:00")
+      // ) {
+      //To be removed once all forms are updated
+      await getRepresentativeByPostalCode(
+        pledgeForm,
+        config,
+        postalCode,
+        representativeList
+      );
+      // } else {
+      //   await getRepresentativesByLatLng(lat, lng, representativeList);
+      // }
     }
 
     if (pledgeForm.bsi_assignedrepsonly === true) {
